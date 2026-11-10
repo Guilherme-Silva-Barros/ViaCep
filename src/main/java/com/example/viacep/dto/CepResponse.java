@@ -3,7 +3,7 @@ package com.example.viacep.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record CepDTO(
+public record CepResponse(
         String cep,
         String logradouro,
         String complemento,
