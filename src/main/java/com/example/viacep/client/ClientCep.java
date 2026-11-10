@@ -18,16 +18,16 @@ public class ClientCep {
     }
     public CepResponse listarPorCep(String cep){
         return restClient.get()
-                .uri("/{cep}/json", cep)
+                .uri("/{cep}/json/", cep)
                 .retrieve()
                 .onStatus(HttpStatusCode::is4xxClientError, (request, response) -> {
                     throw new CepInvalidoException(cep);
                 })
                 .body(CepResponse.class);
     }
-    public List<CepResponse>buscaPorEndereco(String uf, String cidade, String logradouro){
+    public List<CepResponse>buscaPorEndereco(String uf, String localidade, String logradouro){
         return restClient.get()
-                .uri("/{uf}/{cidade}/{logradouro}/json")
+                .uri("/{uf}/{localidade}/{logradouro}/json", uf, localidade, logradouro)
                 .retrieve()
                 .body(new ParameterizedTypeReference<List<CepResponse>>(){});
     }

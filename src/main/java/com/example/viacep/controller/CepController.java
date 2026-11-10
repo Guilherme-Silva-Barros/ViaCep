@@ -23,8 +23,8 @@ public class CepController {
 
     @GetMapping
     public List<CepResponse>buscarPorEndereco(@RequestParam @Size(min=2, max=2) String uf,
-                                              @RequestParam @NotBlank String cidade,
+                                              @RequestParam @NotBlank String localidade,
                                               @RequestParam @Size(min=3)String logradouro){
-        return cepService.getByEndereco(uf,cidade,logradouro);
+        return cepService.getByEndereco(uf,localidade,logradouro);
     }
 }

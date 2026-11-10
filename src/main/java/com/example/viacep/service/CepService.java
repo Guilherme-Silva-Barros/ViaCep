@@ -19,7 +19,7 @@ public class CepService {
 
     public CepResponse getCep(String cepBruto){
         String cep = cepBruto.replaceAll("\\D", "");
-        if(cepBruto.length()!=8){
+        if(cep.length()!=8){
             throw new CepInvalidoException(cepBruto);
         }
         CepResponse resposta = clientCep.listarPorCep(cep);
@@ -29,8 +29,8 @@ public class CepService {
         return resposta;
     }
 
-    public List<CepResponse>getByEndereco(String uf, String cidade, String logradouro){
-        return clientCep.buscaPorEndereco(uf, cidade, logradouro);
+    public List<CepResponse>getByEndereco(String uf, String localidade, String logradouro){
+        return clientCep.buscaPorEndereco(uf, localidade, logradouro);
     }
 
 }

@@ -27,7 +27,7 @@ public class CepExceptionHandler {
     //trata de erros com a comunicação com API
     @ExceptionHandler(ResourceAccessException.class)
     ProblemDetail apiIndisponivel(ResourceAccessException ex){
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_GATEWAY, ex.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_GATEWAY, "Serviço da API indisponível");
     }
 
 }
